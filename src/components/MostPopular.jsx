@@ -8,7 +8,7 @@ const MostPopular = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/popular-lessons")
+      .get("https://digital-life-lessons-server.vercel.app/popular-lessons")
       .then((res) => setLessons(res.data))
       .catch((err) => console.error(err));
   }, []);

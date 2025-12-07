@@ -51,12 +51,17 @@ const Register = () => {
               role: "user",
             };
 
-            axios.post("http://localhost:5000/users", userInfo).then((res) => {
-              if (res.data.insertedId) {
-                toast.success("Registration Successful!");
-                navigate("/");
-              }
-            });
+            axios
+              .post(
+                "https://digital-life-lessons-server.vercel.app/users",
+                userInfo
+              )
+              .then((res) => {
+                if (res.data.insertedId) {
+                  toast.success("Registration Successful!");
+                  navigate("/");
+                }
+              });
           })
           .catch((err) => {
             toast.error(err.message);
@@ -78,10 +83,15 @@ const Register = () => {
           photo: user.photoURL, // <--- গুগল থেকেও ফটো নেওয়া হলো
           role: "user",
         };
-        axios.post("http://localhost:5000/users", userInfo).then(() => {
-          toast.success("Google Login Successful!");
-          navigate("/");
-        });
+        axios
+          .post(
+            "https://digital-life-lessons-server.vercel.app/users",
+            userInfo
+          )
+          .then(() => {
+            toast.success("Google Login Successful!");
+            navigate("/");
+          });
       })
       .catch((error) => {
         toast.error(error.message);

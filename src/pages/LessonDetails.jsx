@@ -42,7 +42,7 @@ const LessonDetails = () => {
   useEffect(() => {
     // 1. Main Lesson
     axios
-      .get(`http://localhost:5000/lessons/${id}`)
+      .get(`https://digital-life-lessons-server.vercel.app/lessons/${id}`)
       .then((res) => {
         setLesson(res.data);
         setLikeCount(res.data.likes || 0);
@@ -52,7 +52,9 @@ const LessonDetails = () => {
 
     // 2. Similar Lessons
     axios
-      .get(`http://localhost:5000/lessons/similar/${id}`)
+      .get(
+        `https://digital-life-lessons-server.vercel.app/lessons/similar/${id}`
+      )
       .then((res) => setSimilarLessons(res.data))
       .catch((err) => console.log(err));
 
@@ -61,7 +63,9 @@ const LessonDetails = () => {
 
     // 4. Counts
     axios
-      .get(`http://localhost:5000/favorites/count/${id}`)
+      .get(
+        `https://digital-life-lessons-server.vercel.app/favorites/count/${id}`
+      )
       .then((res) => setSaveCount(res.data.count));
 
     if (user?.email) {
@@ -80,7 +84,7 @@ const LessonDetails = () => {
 
   const fetchComments = () => {
     axios
-      .get(`http://localhost:5000/comments/${id}`)
+      .get(`https://digital-life-lessons-server.vercel.app/comments/${id}`)
       .then((res) => setComments(res.data));
   };
 

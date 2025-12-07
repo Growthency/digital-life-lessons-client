@@ -6,7 +6,7 @@ const TopContributors = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/top-contributors")
+      .get("https://digital-life-lessons-server.vercel.app/top-contributors")
       .then((res) => setContributors(res.data))
       .catch((err) => console.error(err));
   }, []);

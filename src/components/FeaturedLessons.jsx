@@ -8,7 +8,7 @@ const FeaturedLessons = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/lessons")
+      .get("https://digital-life-lessons-server.vercel.app/lessons")
       .then((res) => {
         // পেজিনেশন অবজেক্ট থাকলে result থেকে নিব, নাহলে সরাসরি data
         const data = res.data.result ? res.data.result : res.data;

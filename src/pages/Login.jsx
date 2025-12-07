@@ -41,10 +41,15 @@ const Login = () => {
           photo: user.photoURL, // <--- এখানেও ফটো যোগ করা হলো
           role: "user",
         };
-        axios.post("http://localhost:5000/users", userInfo).then(() => {
-          toast.success("Google Login Successful!");
-          navigate(from, { replace: true });
-        });
+        axios
+          .post(
+            "https://digital-life-lessons-server.vercel.app/users",
+            userInfo
+          )
+          .then(() => {
+            toast.success("Google Login Successful!");
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => {
         toast.error(error.message);

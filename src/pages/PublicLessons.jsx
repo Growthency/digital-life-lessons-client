@@ -29,7 +29,7 @@ const PublicLessons = () => {
     setLoading(true);
     axios
       .get(
-        `http://localhost:5000/lessons?page=${currentPage}&size=${itemsPerPage}&search=${search}&category=${category}&sort=${sort}`
+        `https://digital-life-lessons-server.vercel.app/lessons?page=${currentPage}&size=${itemsPerPage}&search=${search}&category=${category}&sort=${sort}`
       )
       .then((res) => {
         setLessons(res.data.result);

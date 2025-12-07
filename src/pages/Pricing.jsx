@@ -8,7 +8,7 @@ const Pricing = () => {
   const handleCheckout = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/create-checkout-session",
+        "https://digital-life-lessons-server.vercel.app/create-checkout-session",
         {
           email: user.email,
         }

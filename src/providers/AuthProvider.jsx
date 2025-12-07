@@ -55,12 +55,14 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         // লগইন করলে টোকেন আনো
         const userInfo = { email: currentUser.email };
-        axios.post("http://localhost:5000/jwt", userInfo).then((res) => {
-          if (res.data.token) {
-            localStorage.setItem("access-token", res.data.token);
-            setLoading(false);
-          }
-        });
+        axios
+          .post("https://digital-life-lessons-server.vercel.app/jwt", userInfo)
+          .then((res) => {
+            if (res.data.token) {
+              localStorage.setItem("access-token", res.data.token);
+              setLoading(false);
+            }
+          });
       } else {
         // লগআউট করলে টোকেন ডিলিট করো
         localStorage.removeItem("access-token");

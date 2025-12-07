@@ -12,7 +12,9 @@ const PaymentSuccess = () => {
     if (email) {
       // সার্ভারকে বলছি ইউজারকে প্রিমিয়াম বানাতে
       axios
-        .patch(`http://localhost:5000/users/make-premium/${email}`)
+        .patch(
+          `https://digital-life-lessons-server.vercel.app/users/make-premium/${email}`
+        )
         .then((res) => {
           if (res.data.modifiedCount > 0) {
             toast.success("Congratulations! You are now a Premium Member.");
