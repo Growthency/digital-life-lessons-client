@@ -1,32 +1,21 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { FaLock, FaUnlock } from "react-icons/fa";
+import { FaHeart, FaLock, FaUnlock } from "react-icons/fa";
 
 const FeaturedLessons = () => {
   const [lessons, setLessons] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/lessons")
+      .get("https://digital-life-lessons-server.vercel.app/lessons")
       .then((res) => {
-        // ডিবাগ করার জন্য কনসোলে প্রিন্ট করছি
-        console.log("Home Page Lessons Data:", res.data);
-
-        let data = [];
-        // ১. যদি সরাসরি অ্যারে আসে (Old method)
-        if (Array.isArray(res.data)) {
-          data = res.data;
-        }
-        // ২. যদি অবজেক্ট আসে এবং ভেতরে result থাকে (Pagination method)
-        else if (res.data.result && Array.isArray(res.data.result)) {
-          data = res.data.result;
-        }
-
-        // ৩. লেটেস্ট ৬টা সেট করো
+        // পেজিনেশন অবজেক্ট থাকলে result থেকে নিব, নাহলে সরাসরি data
+        const data = res.data.result ? res.data.result : res.data;
+        // লেটেস্ট ৬টা দেখাবো
         setLessons(data.slice(0, 6));
       })
-      .catch((err) => console.error("Featured Lessons Error:", err));
+      .catch((err) => console.error(err));
   }, []);
 
   return (
@@ -72,7 +61,7 @@ const FeaturedLessons = () => {
                 </p>
 
                 <div className="flex justify-between items-center mt-auto pt-4 border-t">
-                  {/* Access Level */}
+                  {/* Left Side: Access Level */}
                   <div
                     className={`badge ${
                       lesson.accessLevel === "Premium"
@@ -88,7 +77,7 @@ const FeaturedLessons = () => {
                     {lesson.accessLevel}
                   </div>
 
-                  {/* Read More */}
+                  {/* Right Side: Read More */}
                   <Link
                     to={`/lessons/${lesson._id}`}
                     className="btn btn-sm btn-primary btn-outline"
@@ -101,7 +90,7 @@ const FeaturedLessons = () => {
           ))}
         </div>
 
-        {/* View All Button */}
+        {/* --- NEW BUTTON: VIEW ALL LESSONS --- */}
         <div className="mt-12">
           <Link
             to="/public-lessons"
