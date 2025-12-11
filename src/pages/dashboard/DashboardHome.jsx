@@ -11,13 +11,13 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { FaBook, FaHeart, FaBookmark } from "react-icons/fa";
-import useAxiosSecure from "../../hooks/useAxiosSecure"; // Import
+import useAxiosSecure from "../../hooks/useAxiosSecure"; 
 import usePageTitle from "../../hooks/usePageTitle";
 
 const DashboardHome = () => {
   usePageTitle("Dashboard Home");
   const { user } = useAuth();
-  const axiosSecure = useAxiosSecure(); // Hook
+  const axiosSecure = useAxiosSecure(); 
   const [stats, setStats] = useState({
     totalLessons: 0,
     totalFavorites: 0,
@@ -33,10 +33,6 @@ const DashboardHome = () => {
         .catch((err) => console.error(err));
     }
   }, [user?.email, axiosSecure]);
-
-  // ... (বাকি JSX কোড আগের মতোই থাকবে, শুধু axiosSecure ব্যবহার হয়েছে)
-  // পুরো JSX কি লাগবে? যদি আগেরটা ঠিক থাকে তাহলে শুধু উপরের লজিকটুকু কপি করে পেস্ট করলেই হবে।
-  // কনফিউশন এড়াতে আমি পুরো কোডই দিচ্ছি:
 
   return (
     <div className="p-4 w-full">
