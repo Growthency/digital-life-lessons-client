@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
         element: <PublicLessons />,
       },
       {
-        path: "lessons/:id", // এই রাউটটা একবারই থাকবে
+        path: "lessons/:id",
         element: <LessonDetails />,
       },
       {
