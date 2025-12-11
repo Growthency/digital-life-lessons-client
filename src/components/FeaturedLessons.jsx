@@ -10,9 +10,8 @@ const FeaturedLessons = () => {
     axios
       .get("https://digital-life-lessons-server.vercel.app/lessons")
       .then((res) => {
-        // পেজিনেশন অবজেক্ট থাকলে result থেকে নিব, নাহলে সরাসরি data
         const data = res.data.result ? res.data.result : res.data;
-        // লেটেস্ট ৬টা দেখাবো
+
         setLessons(data.slice(0, 6));
       })
       .catch((err) => console.error(err));
@@ -25,7 +24,6 @@ const FeaturedLessons = () => {
           Featured Lessons
         </h2>
 
-        {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {lessons.map((lesson) => (
             <div
@@ -38,7 +36,6 @@ const FeaturedLessons = () => {
                   alt={lesson.title}
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
-                {/* Image Overlay for Premium */}
                 {lesson.accessLevel === "Premium" && (
                   <div className="absolute top-2 right-2 badge badge-warning gap-1 font-bold shadow-md">
                     <FaLock size={10} /> Premium
@@ -61,7 +58,6 @@ const FeaturedLessons = () => {
                 </p>
 
                 <div className="flex justify-between items-center mt-auto pt-4 border-t">
-                  {/* Left Side: Access Level */}
                   <div
                     className={`badge ${
                       lesson.accessLevel === "Premium"
@@ -77,7 +73,6 @@ const FeaturedLessons = () => {
                     {lesson.accessLevel}
                   </div>
 
-                  {/* Right Side: Read More */}
                   <Link
                     to={`/lessons/${lesson._id}`}
                     className="btn btn-sm btn-primary btn-outline"
@@ -90,7 +85,6 @@ const FeaturedLessons = () => {
           ))}
         </div>
 
-        {/* --- NEW BUTTON: VIEW ALL LESSONS --- */}
         <div className="mt-12">
           <Link
             to="/public-lessons"

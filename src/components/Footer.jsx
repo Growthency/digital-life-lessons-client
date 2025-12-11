@@ -12,7 +12,6 @@ const Footer = () => {
     <footer className="bg-base-300 text-base-content pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Widget 1: Brand Info */}
           <div className="space-y-4">
             <Link
               to="/"
@@ -53,7 +52,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Widget 2: Quick Links */}
           <div>
             <h3 className="text-lg font-bold mb-4 text-primary uppercase tracking-wider">
               Quick Links
@@ -102,7 +100,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Widget 3: Categories (FIXED LINKS) */}
           <div>
             <h3 className="text-lg font-bold mb-4 text-primary uppercase tracking-wider">
               Explore Topics
@@ -140,7 +137,6 @@ const Footer = () => {
                   Mindset
                 </Link>
               </li>
-              {/* নতুন ক্যাটাগরি যোগ করা হলো */}
               <li>
                 <Link
                   to="/public-lessons?category=Mistakes Learned"
@@ -152,7 +148,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Widget 4: Newsletter */}
           <div>
             <h3 className="text-lg font-bold mb-4 text-primary uppercase tracking-wider">
               Weekly Wisdom

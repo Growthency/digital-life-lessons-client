@@ -56,9 +56,7 @@ const Navbar = () => {
   );
 
   return (
-    // বাইরের div-এ ব্যাকগ্রাউন্ড এবং শ্যাডো থাকবে (পুরো স্ক্রিন জুড়ে)
     <div className="bg-base-100 shadow-sm fixed top-0 w-full z-50">
-      {/* ভেতরের div-এ container ক্লাস থাকবে (মাঝখানে রাখার জন্য) */}
       <div className="navbar container mx-auto px-4">
         <div className="navbar-start">
           <div className="dropdown">
