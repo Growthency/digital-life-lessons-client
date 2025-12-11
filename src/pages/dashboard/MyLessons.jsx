@@ -3,18 +3,18 @@ import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import useAxiosSecure from "../../hooks/useAxiosSecure"; // 1. Import
+import useAxiosSecure from "../../hooks/useAxiosSecure"; 
 import usePageTitle from "../../hooks/usePageTitle";
 
 const MyLessons = () => {
   usePageTitle("My Lessions");
   const { user } = useAuth();
   const [lessons, setLessons] = useState([]);
-  const axiosSecure = useAxiosSecure(); // 2. Hook Call
+  const axiosSecure = useAxiosSecure(); 
 
   useEffect(() => {
     if (user?.email) {
-      // 3. Use axiosSecure
+     
       axiosSecure
         .get(`/lessons/user/${user.email}`)
         .then((res) => setLessons(res.data))

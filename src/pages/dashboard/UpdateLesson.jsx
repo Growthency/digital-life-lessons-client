@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useParams, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import useAxiosSecure from "../../hooks/useAxiosSecure"; // Import
+import useAxiosSecure from "../../hooks/useAxiosSecure"; 
 import usePageTitle from "../../hooks/usePageTitle";
 
 const UpdateLesson = () => {
@@ -10,10 +10,9 @@ const UpdateLesson = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { register, handleSubmit, setValue } = useForm();
-  const axiosSecure = useAxiosSecure(); // Hook
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    // Use axiosSecure
     axiosSecure.get(`/lessons/${id}`).then((res) => {
       const data = res.data;
       setValue("title", data.title);

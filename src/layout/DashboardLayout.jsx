@@ -75,11 +75,11 @@ const DashboardLayout = () => {
                   <FaFlag /> Reported Lessons
                 </NavLink>
               </li>
-              {/* এডমিন প্রোফাইল আলাদা না রেখে কমন প্রোফাইল ব্যবহার করাই ভালো */}
+              
             </>
           )}
 
-          {/* ২. আর এই মেনুগুলো সবার জন্য (এডমিন + ইউজার সবাই দেখবে) */}
+          
           <div className="divider"></div>
           <li className="menu-title text-gray-500">User Dashboard</li>
 

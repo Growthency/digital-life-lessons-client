@@ -3,18 +3,18 @@ import useAuth from "../../hooks/useAuth";
 import { FaTrash, FaExternalLinkAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../hooks/useAxiosSecure"; // ১. হুক ইমপোর্ট
+import useAxiosSecure from "../../hooks/useAxiosSecure"; 
 import usePageTitle from "../../hooks/usePageTitle";
 
 const MyFavorites = () => {
   usePageTitle("My Favorites");
   const { user } = useAuth();
   const [favorites, setFavorites] = useState([]);
-  const axiosSecure = useAxiosSecure(); // ২. হুক কল
+  const axiosSecure = useAxiosSecure(); 
 
   useEffect(() => {
     if (user?.email) {
-      // ৩. axios এর বদলে axiosSecure ব্যবহার করা হলো
+      
       axiosSecure
         .get(`/favorites/${user.email}`)
         .then((res) => setFavorites(res.data))
@@ -31,7 +31,7 @@ const MyFavorites = () => {
       confirmButtonText: "Yes, remove it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        // ৪. ডিলিট করার জন্যও সিকিউর অ্যাক্সেস
+        
         axiosSecure.delete(`/favorites/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             Swal.fire("Removed!", "Lesson removed.", "success");

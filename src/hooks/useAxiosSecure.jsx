@@ -10,7 +10,6 @@ const useAxiosSecure = () => {
   const navigate = useNavigate();
   const { logOut } = useAuth();
 
-  // রিকোয়েস্ট ইন্টারসেপ্টর (টোকেন অ্যাড করা)
   axiosSecure.interceptors.request.use(
     function (config) {
       const token = localStorage.getItem("access-token");
@@ -24,7 +23,6 @@ const useAxiosSecure = () => {
     }
   );
 
-  // রেসপন্স ইন্টারসেপ্টর (401/403 এরর হ্যান্ডেল করা)
   axiosSecure.interceptors.response.use(
     function (response) {
       return response;

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import useAxiosSecure from "../../hooks/useAxiosSecure"; // Import
+import useAxiosSecure from "../../hooks/useAxiosSecure"; 
 import usePageTitle from "../../hooks/usePageTitle";
 
 const Profile = () => {
@@ -11,7 +11,7 @@ const Profile = () => {
   const [lessonCount, setLessonCount] = useState(0);
   const { register, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
-  const axiosSecure = useAxiosSecure(); // Hook
+  const axiosSecure = useAxiosSecure(); 
 
   useEffect(() => {
     if (user?.email) {

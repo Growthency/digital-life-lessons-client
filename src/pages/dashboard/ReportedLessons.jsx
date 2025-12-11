@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { FaTrash, FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import useAxiosSecure from "../../hooks/useAxiosSecure"; // ইমপোর্ট
+import useAxiosSecure from "../../hooks/useAxiosSecure"; 
 import usePageTitle from "../../hooks/usePageTitle";
 
 const ReportedLessons = () => {
   usePageTitle("Reported Lessions");
   const [reports, setReports] = useState([]);
-  const axiosSecure = useAxiosSecure(); // হুক
+  const axiosSecure = useAxiosSecure(); 
 
   useEffect(() => {
     axiosSecure.get("/reports").then((res) => setReports(res.data));
@@ -23,9 +23,7 @@ const ReportedLessons = () => {
       confirmButtonText: "Yes, Delete Lesson",
     }).then((result) => {
       if (result.isConfirmed) {
-        // ১. লেসন ডিলিট (Secure)
         axiosSecure.delete(`/lessons/${report.lessonId}`).then(() => {
-          // ২. রিপোর্ট ডিলিট (Secure)
           axiosSecure.delete(`/reports/${report._id}`).then(() => {
             Swal.fire("Deleted!", "Lesson removed.", "success");
             setReports(reports.filter((r) => r._id !== report._id));
