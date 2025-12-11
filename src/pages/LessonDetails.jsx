@@ -37,10 +37,9 @@ const LessonDetails = () => {
   const [saveCount, setSaveCount] = useState(0);
   const [isUserPremium, setIsUserPremium] = useState(false);
 
-  const shareUrl = window.location.href; // বর্তমান পেজের লিংক
+  const shareUrl = window.location.href; 
 
   useEffect(() => {
-    // 1. Main Lesson
     axios
       .get(`https://digital-life-lessons-server.vercel.app/lessons/${id}`)
       .then((res) => {
@@ -50,7 +49,6 @@ const LessonDetails = () => {
       })
       .catch((err) => console.error(err));
 
-    // 2. Similar Lessons
     axios
       .get(
         `https://digital-life-lessons-server.vercel.app/lessons/similar/${id}`
@@ -58,10 +56,8 @@ const LessonDetails = () => {
       .then((res) => setSimilarLessons(res.data))
       .catch((err) => console.log(err));
 
-    // 3. Comments
     fetchComments();
 
-    // 4. Counts
     axios
       .get(
         `https://digital-life-lessons-server.vercel.app/favorites/count/${id}`
@@ -170,7 +166,6 @@ const LessonDetails = () => {
         <FaArrowLeft /> Back
       </Link>
 
-      {/* --- MAIN CARD --- */}
       <div className="card bg-base-100 shadow-xl border overflow-hidden relative mb-12">
         <div
           className="absolute top-4 right-4 z-10 tooltip tooltip-left"
@@ -224,7 +219,6 @@ const LessonDetails = () => {
 
           <h1 className="text-4xl font-bold mb-4">{lesson.title}</h1>
 
-          {/* Author */}
           <div className="flex items-center gap-4 mb-6 p-4 bg-base-200 rounded-lg">
             <div className="avatar">
               <div className="w-12 h-12 rounded-full">
@@ -283,7 +277,6 @@ const LessonDetails = () => {
                 <FaBookmark /> {isSaved ? "Saved" : "Save"}
               </button>
 
-              {/* Share Dropdown */}
               <div className="dropdown dropdown-top dropdown-end">
                 <div
                   tabIndex={0}
@@ -320,7 +313,6 @@ const LessonDetails = () => {
         </div>
       </div>
 
-      {/* --- SIMILAR LESSONS --- */}
       <div className="mb-12">
         <h3 className="text-2xl font-bold mb-6 border-l-4 border-primary pl-3">
           You Might Also Like
@@ -355,7 +347,6 @@ const LessonDetails = () => {
         )}
       </div>
 
-      {/* --- COMMENTS --- */}
       <div className="card bg-base-100 shadow-xl border p-6">
         <h3 className="text-2xl font-bold mb-6">
           Comments ({comments.length})
@@ -406,7 +397,6 @@ const LessonDetails = () => {
         </div>
       </div>
 
-      {/* Report Modal */}
       <dialog id="report_modal" className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg text-red-600 flex items-center gap-2">
