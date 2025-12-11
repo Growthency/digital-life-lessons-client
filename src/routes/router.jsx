@@ -8,6 +8,7 @@ import PublicLessons from "../pages/PublicLessons";
 import Pricing from "../pages/Pricing";
 import PaymentSuccess from "../pages/PaymentSuccess";
 import ErrorPage from "../pages/ErrorPage";
+import PaymentFail from "../pages/PaymentFail";
 
 // Dashboard Components
 import DashboardLayout from "../layout/DashboardLayout";
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
       {
         path: "payment/success",
         element: <PaymentSuccess />,
+      },
+      {
+        path: "payment/fail",
+        element: <PaymentFail />,
       },
     ],
   },

@@ -2,12 +2,17 @@ import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import usePageTitle from "../hooks/usePageTitle";
+import toast from "react-hot-toast";
 
 const Pricing = () => {
   usePageTitle("Pricing");
   const { user } = useAuth();
 
   const handleCheckout = async () => {
+    if (!user) {
+      return toast.error("Please login to upgrade your plan!");
+    }
+
     try {
       const res = await axios.post(
         "https://digital-life-lessons-server.vercel.app/create-checkout-session",
@@ -18,6 +23,7 @@ const Pricing = () => {
       window.location.href = res.data.url;
     } catch (error) {
       console.error(error);
+      toast.error("Something went wrong!");
     }
   };
 
