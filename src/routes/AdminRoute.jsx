@@ -7,7 +7,6 @@ const AdminRoute = ({ children }) => {
   const [isAdmin, isAdminLoading] = useAdmin();
   const location = useLocation();
 
-  // ১. যদি ডাটা লোডিং অবস্থায় থাকে, স্পিনার দেখাও
   if (loading || isAdminLoading) {
     return (
       <div className="text-center mt-20">
@@ -16,12 +15,10 @@ const AdminRoute = ({ children }) => {
     );
   }
 
-  // ২. যদি ইউজার থাকে এবং সে এডমিন হয়, তবে ঢুকতে দাও
   if (user && isAdmin) {
     return children;
   }
 
-  // ৩. নাহলে লগআউট করিয়ে দাও বা হোম পেজে পাঠিয়ে দাও
   return <Navigate to="/" state={{ from: location }} replace></Navigate>;
 };
 
