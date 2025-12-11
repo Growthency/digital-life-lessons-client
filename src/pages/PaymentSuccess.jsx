@@ -10,7 +10,6 @@ const PaymentSuccess = () => {
 
   useEffect(() => {
     if (email) {
-      // সার্ভারকে বলছি ইউজারকে প্রিমিয়াম বানাতে
       axios
         .patch(
           `https://digital-life-lessons-server.vercel.app/users/make-premium/${email}`
@@ -19,10 +18,10 @@ const PaymentSuccess = () => {
           if (res.data.modifiedCount > 0) {
             toast.success("Congratulations! You are now a Premium Member.");
           }
-          // ৫ সেকেন্ড পর ড্যাশবোর্ডে পাঠিয়ে দেব
+
           setTimeout(() => {
             navigate("/dashboard");
-            window.location.reload(); // রিলোড দিচ্ছি যাতে স্ট্যাটাস আপডেট হয়
+            window.location.reload();
           }, 3000);
         })
         .catch((err) => console.error(err));
