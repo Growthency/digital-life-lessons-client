@@ -34,11 +34,10 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
-        // Save User to DB if doesn't exist (FIXED CODE)
         const userInfo = {
           name: user.displayName,
           email: user.email,
-          photo: user.photoURL, // <--- এখানেও ফটো যোগ করা হলো
+          photo: user.photoURL,
           role: "user",
         };
         axios
