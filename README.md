@@ -1,6 +1,6 @@
 # 📘 Digital Life Lessons
 
-**Live Site URL:** []
+**Live Site URL:** [https://digital-life-lessons-client.vercel.app]
 
 Digital Life Lessons is a full-stack platform designed to preserve personal wisdom and facilitate community learning. Users can share their life experiences, learn from others, and organize their personal growth journey. The platform incorporates a premium membership model using Stripe payments.
 
@@ -23,15 +23,3 @@ Digital Life Lessons is a full-stack platform designed to preserve personal wisd
 - **Database:** MongoDB (CRUD operations, Aggregation).
 - **Authentication:** Firebase Auth, JWT (JSON Web Token).
 - **Payment:** Stripe.
-
-## ⚙️ How to Run Locally
-
-1.  Clone the repository.
-2.  Install dependencies: `npm install` (both client and server).
-3.  Set up environment variables (`.env`) for Firebase, MongoDB, and Stripe.
-4.  Run the server: `nodemon index.js`.
-5.  Run the client: `npm run dev`.
-
----
-
-_Developed for Assignment 11 (Category 003)_
