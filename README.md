@@ -1,6 +1,7 @@
 # 📘 Digital Life Lessons
 
 **Live Site URL:** [https://digital-life-lessons-client.vercel.app]
+
 **Live Server URL:** [https://digital-life-lessons-server.vercel.app]
 
 Digital Life Lessons is a full-stack platform designed to preserve personal wisdom and facilitate community learning. Users can share their life experiences, learn from others, and organize their personal growth journey. The platform incorporates a premium membership model using Stripe payments.
