@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"; // useEffect যোগ করলাম
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ const AddLesson = () => {
   const axiosSecure = useAxiosSecure();
   const [isPremium, setIsPremium] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [animationData, setAnimationData] = useState(null); // অ্যানিমেশন রাখার জন্য স্টেট
+  const [animationData, setAnimationData] = useState(null); 
 
   // 1. User Premium Check
   useEffect(() => {
@@ -28,9 +28,8 @@ const AddLesson = () => {
     }
   }, [user?.email, axiosSecure]);
 
-  // 2. Load Lottie Animation from URL (New Fix)
   useEffect(() => {
-    fetch("https://assets9.lottiefiles.com/packages/lf20_xlkxtmul.json") // অনলাইন লিংক
+    fetch("https://assets9.lottiefiles.com/packages/lf20_xlkxtmul.json")
       .then((res) => res.json())
       .then((data) => setAnimationData(data));
   }, []);
@@ -56,7 +55,7 @@ const AddLesson = () => {
     try {
       const res = await axiosSecure.post("/lessons", lessonData);
       if (res.data.insertedId) {
-        setShowModal(true); // মডাল ওপেন
+        setShowModal(true); 
         reset();
       }
     } catch (error) {
@@ -184,12 +183,11 @@ const AddLesson = () => {
         </button>
       </form>
 
-      {/* --- Success Modal with Lottie --- */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-base-100 p-8 rounded-2xl shadow-2xl text-center max-w-md w-full">
             <div className="w-40 h-40 mx-auto">
-              {/* ডাটা লোড হলে অ্যানিমেশন দেখাবে */}
+
               {animationData && (
                 <Lottie animationData={animationData} loop={false} />
               )}
