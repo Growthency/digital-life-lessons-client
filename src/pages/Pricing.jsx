@@ -15,7 +15,6 @@ const Pricing = () => {
           email: user.email,
         }
       );
-      // স্ট্রাইপ পেমেন্ট পেজে নিয়ে যাবে
       window.location.href = res.data.url;
     } catch (error) {
       console.error(error);
