@@ -10,7 +10,7 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
-import axios from "axios"; // Axios Import
+import axios from "axios"; 
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -52,8 +52,8 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
 
       // --- JWT TOKEN MANAGEMENT ---
+
       if (currentUser) {
-        // লগইন করলে টোকেন আনো
         const userInfo = { email: currentUser.email };
         axios
           .post("https://digital-life-lessons-server.vercel.app/jwt", userInfo)
@@ -64,7 +64,6 @@ const AuthProvider = ({ children }) => {
             }
           });
       } else {
-        // লগআউট করলে টোকেন ডিলিট করো
         localStorage.removeItem("access-token");
         setLoading(false);
       }
