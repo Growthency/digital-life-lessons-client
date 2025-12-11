@@ -9,12 +9,12 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import useAuth from "../../hooks/useAuth";
-import useAxiosSecure from "../../hooks/useAxiosSecure"; // ১. ইমপোর্ট
+import useAxiosSecure from "../../hooks/useAxiosSecure"; 
 import usePageTitle from "../../hooks/usePageTitle";
 const AdminHome = () => {
   usePageTitle("Admin Home");
   const { user } = useAuth();
-  const axiosSecure = useAxiosSecure(); // ২. হুক কল
+  const axiosSecure = useAxiosSecure(); 
   const [stats, setStats] = useState({
     totalUsers: 0,
     totalLessons: 0,
@@ -22,7 +22,6 @@ const AdminHome = () => {
   });
 
   useEffect(() => {
-    // ৩. axiosSecure ব্যবহার করা হলো
     axiosSecure
       .get("/admin-stats")
       .then((res) => setStats(res.data))
