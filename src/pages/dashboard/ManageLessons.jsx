@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { FaTrash, FaExternalLinkAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import useAxiosSecure from "../../hooks/useAxiosSecure"; // ইমপোর্ট
+import useAxiosSecure from "../../hooks/useAxiosSecure"; 
 import usePageTitle from "../../hooks/usePageTitle";
 
 const ManageLessons = () => {
   usePageTitle("Manage Lessions");
   const [lessons, setLessons] = useState([]);
-  const axiosSecure = useAxiosSecure(); // হুক
+  const axiosSecure = useAxiosSecure(); 
 
   useEffect(() => {
     axiosSecure

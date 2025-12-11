@@ -22,7 +22,6 @@ const ManageUsers = () => {
   };
 
   const handleRoleUpdate = (user, newRole) => {
-    // কনফার্মেশন চাইছি যাতে ভুলে ক্লিক না লাগে
     Swal.fire({
       title: `Make this user ${newRole}?`,
       text: `Are you sure you want to change ${user.name}'s role to ${newRole}?`,
@@ -36,7 +35,7 @@ const ManageUsers = () => {
           .then((res) => {
             if (res.data.modifiedCount > 0) {
               toast.success(`${user.name} is now a ${newRole}!`);
-              fetchUsers(); // ডাটা রিফ্রেশ
+              fetchUsers();
             }
           })
           .catch((err) => toast.error("Failed to update role"));
@@ -109,7 +108,6 @@ const ManageUsers = () => {
                 </td>
                 <td>{user.email}</td>
 
-                {/* 1. Role Badge (পরিষ্কার স্ট্যাটাস) */}
                 <td className="text-center">
                   {user.role === "admin" ? (
                     <span className="badge badge-primary badge-lg font-bold gap-1">
@@ -122,7 +120,6 @@ const ManageUsers = () => {
                   )}
                 </td>
 
-                {/* 2. Action Button (রোল পাল্টানোর বাটন) */}
                 <td className="text-center">
                   {user.role === "admin" ? (
                     <button
