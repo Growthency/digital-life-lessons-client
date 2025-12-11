@@ -9,7 +9,6 @@ import { Toaster } from "react-hot-toast";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      {/* AuthProvider-এর ভেতরে সবকিছু থাকতে হবে */}
       <RouterProvider router={router} />
       <Toaster />
     </AuthProvider>
