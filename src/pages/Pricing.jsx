@@ -1,8 +1,10 @@
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import usePageTitle from "../hooks/usePageTitle";
 
 const Pricing = () => {
+  usePageTitle("Pricing");
   const { user } = useAuth();
 
   const handleCheckout = async () => {
